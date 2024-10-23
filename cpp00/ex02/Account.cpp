@@ -1,7 +1,19 @@
-#include "Account.hpp"
-#include <iostream>
-#include <iomanip>
-#include <ctime>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 18:34:04 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/10/21 18:34:19 by elyzouli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "Account.hpp"
+# include <iostream>
+# include <iomanip>
+# include <ctime>
 
  int Account::_nbAccounts = 0;
  int Account::_totalAmount = 0;
@@ -72,6 +84,12 @@ bool Account::makeWithdrawal( int withdrawal )
 	return true;
 }
 
+void	Account::displayAccountsInfos( void )
+{
+	Account::_displayTimestamp();
+	std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
+}
+
 int		Account::checkAmount( void ) const
 {
 	return this->_amount;
@@ -103,10 +121,4 @@ int		Account::getNbDeposits( void )
 int		Account::getNbWithdrawals( void )
 {
 	return Account::_totalNbWithdrawals;
-}
-
-void	Account::displayAccountsInfos( void )
-{
-	Account::_displayTimestamp();
-	std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 }
