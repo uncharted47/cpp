@@ -38,16 +38,14 @@ std::string truncate(std::string &str)
 	return (str);
 }
 
-
-
 void Contact::print_table(int index)
-    {
-		std::cout << "|" << std::setw(10) << (char)(index + '0');
-        std::cout << "|" << std::setw(10) << truncate(this->name);
-        std::cout << "|" << std::setw(10) << truncate(this->lastname);
-        std::cout << "|" << std::setw(10) << truncate(this->nickname);
-        std::cout << "|" << std::endl;
-    }
+{
+	std::cout << "|" << std::setw(10) << (char)(index + '0');
+    std::cout << "|" << std::setw(10) << truncate(this->name);
+    std::cout << "|" << std::setw(10) << truncate(this->lastname);
+    std::cout << "|" << std::setw(10) << truncate(this->nickname);
+    std::cout << "|" << std::endl;
+}
 
 Contact& Contact::operator=(const Contact& other)
 {

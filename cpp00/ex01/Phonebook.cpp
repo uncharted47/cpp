@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 18:35:56 by elyzouli          #+#    #+#             */
+/*   Updated: 2024/10/23 21:33:33 by elyzouli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook()
@@ -14,6 +26,27 @@ int test_number(std::string str)
 	}
 	return (str.length() > 0 && str.length() < 12 && str.length() > 8);
 }
+
+
+
+void getline(std::string &string,std::string msg)
+{
+	if(std::cin.eof())
+	{
+		std::cout << std::endl;
+		std::cout << "EOF detected" <<std::endl;
+		std::cout << std::endl;
+		std::cout << "Exiting..." << std::endl;
+		exit(1);
+	}
+		std::getline(std::cin,string);
+	while(string.length() <=0)
+	{
+		std::cout << "Field can't be empty" <<std::endl;
+		std::cout << msg ;
+		std::getline(std::cin,string);
+	}
+}
 void Phonebook::ADD(void)
 {
 	std::string name;
@@ -22,27 +55,24 @@ void Phonebook::ADD(void)
 	std::string number;
 	std::string secret;
 	std::cout << "Enter the first name: ";
-	std::getline(std::cin, name);
+	getline(name,"Enter the first name: ");
 	std::cout << "Enter the last name: ";
-	std::getline(std::cin, lastname);
+	getline(lastname,"Enter the last name: ");
 	std::cout << "Enter the nickname: ";
-	std::getline(std::cin, nickname);
+	getline(nickname,"Enter the nickname: ");
 	std::cout << "Enter the phone number: ";
-	std::getline(std::cin, number);
+	getline(number,"Enter the phone number: ");
 	while(!test_number(number))
 	{
 		std::cout << "Invalid phone number" << std::endl;
 		std::cout << "Enter the phone number: ";
-		std::getline(std::cin, number);
+		getline(number,"Enter the phone number: ");
 	}
 	std::cout << "Enter the darkest secret: ";
-	std::getline(std::cin, secret);
+	getline(secret,"Enter the darkest secret: ");
 	this->add_contact(Contact(name, lastname, nickname, number, secret));
 	std::cout << "Contact added" << std::endl;
 }
-
-
-
 
 void Phonebook::add_contact(Contact contact)
 {
@@ -76,48 +106,21 @@ void Phonebook::search_contact(void)
 		i++;
 	}
 	std::cout << "Enter the index of the contact you want to see: ";
-	std::getline(std::cin, index);
-	if(index.length() == 1 && index[0] >= '0' && index[0] < (this->index + '0'))
+	while(1)
 	{
-		i = index[0] - '0';
-		this->contacts[i].print_index();
+		getline(index,"Enter the index of the contact you want to see: ");
+		if(index.length() == 1 && index[0] >= '0' && index[0] < (this->index + '0'))
+		{
+			i = index[0] - '0';
+			this->contacts[i].print_index();
+			return ;
+		}
+		else
+			std::cout << "Invalid index" << std::endl;
 	}
-	else
-		std::cout << "Invalid index" << std::endl;
 }
 
 void Phonebook::exit(void)
 {
 	std::cout << "Exiting..." << std::endl;
-}
-
-int main(void)
-{
-	std::string command;
-	Phonebook phonebook;
-	while(1)
-	{
-		if (std::cin.eof())
-		{
-			std::cout << std::endl;
-			std::cout << "EOF detected" <<std::endl;
-			std::cout << std::endl;
-			phonebook.exit();
-			return(1);
-		}
-		std::cout << "Enter a command: ";
-		std::getline(std::cin, command);
-		if(command == "ADD")
-			phonebook.ADD();
-		else if(command == "SEARCH")
-			phonebook.search_contact();
-		else if(command == "EXIT")
-		{
-			phonebook.exit();
-			break;
-		}
-		else if(!std::cin.eof())
-			std::cout << "Invalid command Enter a new command" <<std::endl << std::endl;
-	}
-	return (0);
 }
