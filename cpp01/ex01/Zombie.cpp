@@ -37,3 +37,13 @@ std::string Zombie::getName()
 {
 	return(this->name);
 }
+
+void Zombie::setName(std::string name)
+{
+	this->name = name;
+}
+
+Zombie::Zombie(void)
+{
+	this->name = "";
+}

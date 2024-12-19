@@ -1,8 +1,8 @@
-NAME = Zombie
-SRC = $(wildcard *.cpp)
+NAME = brain
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 all: $(NAME)
 
@@ -20,4 +20,3 @@ fclean: clean
 re: fclean all
 
 .SECONDARY: $(OBJ)
-

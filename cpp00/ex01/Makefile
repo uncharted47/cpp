@@ -1,18 +1,14 @@
-SRC = $(wildcard *.cpp)
-OBJ = $(SRC:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = phonebook
-CC = c++
+OBJ = $(SRC:.cpp=.o)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+all: $(Name)
 
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+$(Name): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(Name)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
-
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)
 

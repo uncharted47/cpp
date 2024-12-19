@@ -1,12 +1,13 @@
-NAME = Account
+NAME = Weapon
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-all: $(Name)
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98  -fsanitize=address
 
-$(Name): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(Name)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@
