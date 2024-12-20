@@ -1,21 +1,20 @@
 #ifndef HARL_HPP
 # define HARL_HPP
-#include <iostream>
+# include <iostream>
 class Harl
 {
-	public :
-		void debug();
-		void info();
-		void warning();
-		void error();
-};
+  private:
+	void debug();
+	void info();
+	void warning();
+	void error();
 
-typedef struct level
+  public:
+	void complain(std::string level);
+};
+struct	Level
 {
 	std::string name;
 	void (Harl::*func)();
-} level;
-
-
-
+};
 #endif
