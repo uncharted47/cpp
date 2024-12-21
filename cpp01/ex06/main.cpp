@@ -2,16 +2,13 @@
 
 int level(std::string str)
 {
-	if(str.empty())
-		return -2;
-	if(str == "DEBUG")
-		return DEBUG;
-	if(str == "INFO")
-		return INFO;
-	if(str == "WARNING")
-		return WARNING;
-	if(str == "ERROR")
-		return ERROR;
+	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+	for(int i = 0; i < 4; i++)
+	{
+		if(!str.compare(levels[i]))
+			return i;
+	}
 	return -1;
 }
 

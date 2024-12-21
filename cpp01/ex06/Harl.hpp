@@ -1,5 +1,5 @@
-#ifndef HARLFILTER_HPP
-# define HARLFILTER_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 # include <iostream>
 
 enum Level
@@ -11,7 +11,7 @@ enum Level
 };
 
 
-class harlFilter
+class Harl
 {
  private:
 	void debug();

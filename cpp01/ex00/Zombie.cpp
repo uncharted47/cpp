@@ -15,24 +15,6 @@ void Zombie::announce()
 	std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie* newZombie(std::string name)
-{
-	Zombie *zombie = new Zombie(name);
-	if(zombie == NULL)
-	{
-		std::cout << "Memory allocation failed" << std::endl;
-		return NULL;
-	}
-	std::cout << zombie->getName() << " : BraiiiiiiinnnzzzZ..." << std::endl;
-	return zombie;
-}
-
-void Zombie::randomChump(std::string name)
-{
-	Zombie zombie = Zombie(name);
-	std::cout << zombie.name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
 std::string Zombie::getName()
 {
 	return(this->name);

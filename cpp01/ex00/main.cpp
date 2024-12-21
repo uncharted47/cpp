@@ -7,7 +7,7 @@ int main()
     Zombie* Zombie_B = newZombie("plant");
     if(Zombie_B == NULL)
         return 1;
-    Zombie_A.randomChump("root");
+    randomChump("root");
     delete Zombie_B;
     return 0;
 }
