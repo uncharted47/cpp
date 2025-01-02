@@ -1,7 +1,7 @@
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	private:
 		bool _guardMode;
@@ -12,6 +12,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap(void);
 		ScavTrap &operator = (const ScavTrap &rhs);
 		void guardGate(void);
+		virtual void attack(std::string const & target);
 };
 
 #endif

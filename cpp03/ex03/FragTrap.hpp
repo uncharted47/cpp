@@ -4,10 +4,9 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-	private:
-		/* data */
+
 	public :
 		FragTrap(void);
 		FragTrap(std::string name);

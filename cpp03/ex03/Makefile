@@ -1,8 +1,8 @@
-NAME = FragTrap
+NAME = DiamondTrap
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3  -Wno-shadow
 
 all: $(NAME)
 

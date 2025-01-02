@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	ScavTrap scavtrap("Scavtrap");
+	ScavTrap scavtrap("ScavTrap");
 	ScavTrap scavtrap2(scavtrap);
 	ScavTrap scavtrap3;
 

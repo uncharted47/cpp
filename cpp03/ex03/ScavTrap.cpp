@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
@@ -18,7 +18,7 @@ ScavTrap::~ScavTrap(void)
 ScavTrap 	&ScavTrap::operator = (const ScavTrap  &obj)
 {
 
-	this->Name = obj.Name;
+	this->_name = obj._name;
 	this->Hitpoints = obj.Hitpoints;
 	this->EnergyPoints = obj.EnergyPoints;
 	this->AttackDamage = obj.AttackDamage;
@@ -27,9 +27,9 @@ ScavTrap 	&ScavTrap::operator = (const ScavTrap  &obj)
 }
 
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	Name = name;
+	_name = name;
 	Hitpoints = 100;
 	EnergyPoints = 50;
 	AttackDamage = 20;
@@ -45,4 +45,15 @@ void ScavTrap::guardGate(void)
 	}
 	_guardMode = true;
 	std::cout << "ScavTrap has entered in Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::attack(std::string const & target)
+{
+	if(!this->EnergyPoints)
+	{
+		std::cout << "ScavTrap " << this->_name << " is out of energy!" <<std::endl;
+		return ;
+	}
+	this->EnergyPoints -= 1;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target << " causing " << this->AttackDamage << " points of damage!" << std::endl;
 }

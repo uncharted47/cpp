@@ -1,8 +1,8 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) {
+FragTrap::FragTrap(void): ClapTrap() {
 	std::cout << "FragTrap default contructor called" << std::endl;
-	this->Name = "FragTrap";
+	this->_name = "FragTrap";
 	this->Hitpoints = 100;
 	this->EnergyPoints = 100;
 	this->AttackDamage = 30;
@@ -23,7 +23,7 @@ FragTrap const	&FragTrap::operator = (FragTrap const &obj)
 	std::cout << "FragTrap assignation operator called" << std::endl;
 	if(this != &obj)
 	{
-		this->Name = obj.Name;
+		this->_name = obj._name;
 		this->Hitpoints = obj.Hitpoints;
 		this->EnergyPoints = obj.EnergyPoints;
 		this->AttackDamage = obj.AttackDamage;
@@ -43,8 +43,8 @@ void FragTrap::highFivesGuys(void)
 {
 	if(!Hitpoints)
 	{
-		std::cout << "FragTrap " << this->Name << " is already dead!" << std::endl;
+		std::cout << "FragTrap " << this->_name << " is already dead!" << std::endl;
 		return ;
 	}
-	std::cout << "FragTrap " << this->Name << " high fives guys" << std::endl;
+	std::cout << "FragTrap " << this->_name << " high fives guys" << std::endl;
 }

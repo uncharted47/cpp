@@ -1,16 +1,18 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 int main(void)
 {
 
-	FragTrap FragTrap1("FragTrap1");
-	FragTrap FragTrap2("FragTrap2");
+	std::string name = "DiamondTrap1";
+	DiamondTrap DiamondTrap1(name);
 
-	FragTrap1.attack("FragTrap2");
-	FragTrap2.takeDamage(30);
-	FragTrap2.beRepaired(20);
-	FragTrap1.highFivesGuys();
+	DiamondTrap1.attack("FragTrap2");
+	DiamondTrap1.takeDamage(30);
+	DiamondTrap1.beRepaired(20);
+	DiamondTrap1.highFivesGuys();
+	DiamondTrap1.guardGate();
+	DiamondTrap1.whoAmI();
 
 	return 0;
 }
