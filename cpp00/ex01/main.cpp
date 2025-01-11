@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:30:59 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/10/23 21:27:02 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/08 03:48:16 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 			return(1);
 		}
 		std::cout << "Enter one of the following commands ADD SEARCH EXIT :" ;
-		std::getline(std::cin, command);
+		getline(std::cin, command);
 		std::cout << std::endl;
 		if(command == "ADD")
 			phonebook.ADD();

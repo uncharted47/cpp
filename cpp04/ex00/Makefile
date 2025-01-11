@@ -1,8 +1,9 @@
-NAME = phonebook
+NAME = Animal
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -19,3 +20,4 @@ fclean: clean
 re: fclean all
 
 .SECONDARY: $(OBJ)
+

@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
-
+#include <cstdlib>
 
 class Phonebook
 {
@@ -17,5 +17,7 @@ class Phonebook
 		void exit(void);
 };
 
+void getline(std::string &string,std::string msg);
+int test_number(std::string str);
 
 #endif
