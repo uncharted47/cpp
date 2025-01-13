@@ -1,5 +1,5 @@
 NAME = Account
-SRC = $(wildcard *.cpp)
+SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

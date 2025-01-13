@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:35:56 by elyzouli          #+#    #+#             */
-/*   Updated: 2025/01/08 11:49:13 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:54:06 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Phonebook::search_contact(void)
 			return ;
 		}
 		else
-			std::cout << "Invalid index" << std::endl;
+			std::cout << "Invalid index" << std::endl << "Enter the index of the contact you want to see: "
 	}
 }
 

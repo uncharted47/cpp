@@ -15,6 +15,7 @@ int test_number(std::string str)
 
 void getline(std::string &string,std::string msg)
 {
+	std::getline(std::cin,string);
 	if(std::cin.eof())
 	{
 		std::cout << std::endl;
@@ -23,7 +24,6 @@ void getline(std::string &string,std::string msg)
 		std::cout << "Exiting..." << std::endl;
 		exit(1);
 	}
-		std::getline(std::cin,string);
 	while(string.length() <=0)
 	{
 		std::cout << "Field can't be empty" <<std::endl;

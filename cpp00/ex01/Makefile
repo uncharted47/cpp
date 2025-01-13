@@ -1,5 +1,5 @@
 NAME = phonebook
-SRC = $(wildcard *.cpp)
+SRC = Phonebook.cpp Contact.cpp main.cpp Utils.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
