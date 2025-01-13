@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:35:56 by elyzouli          #+#    #+#             */
-/*   Updated: 2025/01/13 15:54:06 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:16:10 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@ Phonebook::Phonebook()
 	this->oldest = 0;
 	this->index = 0;
 }
+//cheack if string contains only characters
+int valid_string(std::string string)
+{
+	for(size_t i = 0; i < string.length(); i++)
+	{
+		if(std::isalpha(string[i]) == 0)
+		{
+			std::cout << "Invalid input" << std::endl;
+			return (0);
+		}
+	}
+	return (1);
+
+}
+
 
 void Phonebook::ADD(void)
 {
@@ -27,10 +42,28 @@ void Phonebook::ADD(void)
 	std::string secret;
 	std::cout << "Enter the first name: ";
 	getline(name,"Enter the first name: ");
+	while(!valid_string(name))
+	{
+		std::cout << "Invalid first name" << std::endl;
+		std::cout << "Enter the first name: ";
+		getline(name,"Enter the first name: ");
+	}
 	std::cout << "Enter the last name: ";
 	getline(lastname,"Enter the last name: ");
+	while(!valid_string(lastname))
+	{
+		std::cout << "Invalid last name" << std::endl;
+		std::cout << "Enter the last name: ";
+		getline(lastname,"Enter the last name: ");
+	}
 	std::cout << "Enter the nickname: ";
 	getline(nickname,"Enter the nickname: ");
+	while(!valid_string(nickname))
+	{
+		std::cout << "Invalid nickname" << std::endl;
+		std::cout << "Enter the nickname: ";
+		getline(nickname,"Enter the nickname: ");
+	}
 	std::cout << "Enter the phone number: ";
 	getline(number,"Enter the phone number: ");
 	while(!test_number(number))
@@ -87,7 +120,7 @@ void Phonebook::search_contact(void)
 			return ;
 		}
 		else
-			std::cout << "Invalid index" << std::endl << "Enter the index of the contact you want to see: "
+			std::cout << "Invalid index" << std::endl << "Enter the index of the contact you want to see: ";
 	}
 }
 
