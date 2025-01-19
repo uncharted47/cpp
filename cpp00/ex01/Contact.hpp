@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:34:41 by elyzouli          #+#    #+#             */
-/*   Updated: 2024/10/21 18:34:42 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:53:12 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ class Contact
 	Contact& operator=(const Contact& other);
 };
 
-
+std::string truncate(std::string &str);
 
 #endif

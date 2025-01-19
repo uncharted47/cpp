@@ -31,3 +31,29 @@ void getline(std::string &string,std::string msg)
 		std::getline(std::cin,string);
 	}
 }
+
+int valid_string(std::string string)
+{
+	for(size_t i = 0; i < string.length(); i++)
+	{
+		if(std::isalpha(string[i]) == 0)
+		{
+			std::cout << "Invalid input" << std::endl;
+			return (0);
+		}
+	}
+	return (1);
+
+}
+
+std::string truncate(std::string &str)
+{
+	std::string tmp;
+	if(str.length() > 10)
+	{
+		tmp = str.substr(0,9);
+		tmp.append(".");
+		return(tmp);
+	}
+	return (str);
+}

@@ -19,5 +19,5 @@ class Phonebook
 
 void getline(std::string &string,std::string msg);
 int test_number(std::string str);
-
+int valid_string(std::string string);
 #endif

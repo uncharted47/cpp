@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:35:56 by elyzouli          #+#    #+#             */
-/*   Updated: 2025/01/13 16:16:10 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:52:35 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,6 @@ Phonebook::Phonebook()
 	this->oldest = 0;
 	this->index = 0;
 }
-//cheack if string contains only characters
-int valid_string(std::string string)
-{
-	for(size_t i = 0; i < string.length(); i++)
-	{
-		if(std::isalpha(string[i]) == 0)
-		{
-			std::cout << "Invalid input" << std::endl;
-			return (0);
-		}
-	}
-	return (1);
-
-}
-
 
 void Phonebook::ADD(void)
 {

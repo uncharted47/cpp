@@ -3,10 +3,10 @@ SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-all: $(Name)
+all: $(NAME)
 
-$(Name): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(Name)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@

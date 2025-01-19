@@ -6,7 +6,7 @@
 /*   By: elyzouli <elyzouli@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:34:04 by elyzouli          #+#    #+#             */
-/*   Updated: 2025/01/13 15:38:48 by elyzouli         ###   ########.fr       */
+/*   Updated: 2025/01/17 18:50:39 by elyzouli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  int Account::_nbAccounts = 0;
  int Account::_totalAmount = 0;
  int Account::_totalNbDeposits = 0;
-  int Account::_totalNbWithdrawals = 0;
+ int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp()
 {
