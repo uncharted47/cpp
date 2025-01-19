@@ -36,11 +36,8 @@ int valid_string(std::string string)
 {
 	for(size_t i = 0; i < string.length(); i++)
 	{
-		if(std::isalpha(string[i]) == 0)
-		{
-			std::cout << "Invalid input" << std::endl;
+		if(std::isprint(string[i]) == 0)
 			return (0);
-		}
 	}
 	return (1);
 
