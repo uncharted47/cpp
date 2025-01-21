@@ -8,13 +8,13 @@ Zombie* zombieHorde( int N, std::string name )
 
 	if(N <= 0)
 	{
-		std::cout << "Invalid number of zombies" << std::endl;
+		std::cerr << "Invalid number of zombies" << std::endl;
 		return NULL;
 	}
 	Horde = new Zombie[N];
 	if (Horde == NULL)
 	{
-		std::cout << "Memory allocation failed" << std::endl;
+		std::cerr << "Memory allocation failed" << std::endl;
 		return NULL;
 	}
 	for(int i = 0; i < N ; i++)

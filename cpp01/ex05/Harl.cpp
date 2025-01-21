@@ -26,7 +26,7 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
-	
+
 	if(level.empty())
 	{
 		std::cout << "No level provided" << std::endl;

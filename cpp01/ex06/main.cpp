@@ -20,12 +20,12 @@ int main(int cmd,char **str)
 
 	if(cmd > 2)
 	{
-		std::cout << "Can only filter one complaning" << std::endl;
+		std::cerr << "Can only filter one complaint" << std::endl;
 		return 1;
 	}
 	if(!str[1])
 	{
-		std::cout << "Emptiness is not a complaint" << std::endl;
+		std::cerr << "Emptiness is not a complaint" << std::endl;
 		return 1;
 	}
 	harl.complain(level(str[1]));

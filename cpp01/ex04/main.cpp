@@ -4,7 +4,12 @@ bool	emptyArgs(int cmd, char **args)
 {
 	if (cmd != 4 || !args[1] || !args[2] || !args[3])
 	{
-		std::cout << "Usage: replacer <file1> <string1> <string2>" << std::endl;
+		std::cerr << "Usage: replacer <file1> <string1> <string2>" << std::endl;
+		return (true);
+	}
+	else if (!args[1][0] || !args[2][0] || !args[3][0])
+	{
+		std::cerr << "Usage: replacer <file1> <string1> <string2>" << std::endl;
 		return (true);
 	}
 	return (false);
