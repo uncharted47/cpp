@@ -8,12 +8,9 @@ DiamondTrap::DiamondTrap(void) :_name("default") {
 		ClapTrap::_name = this->_name + "_clap_name";
 }
 
-DiamondTrap::DiamondTrap(std::string &name) : ClapTrap(name + "_clap_name"), _name(name) {
+DiamondTrap::DiamondTrap(std::string &name) :ClapTrap(name + "_clap_name"), _name(name) {
 		std::cout << "DiamondTrap parametrized constructor called" << std::endl;
-        this->Hitpoints = FragTrap::Hitpoints;
         this->EnergyPoints = 50;
-		this->AttackDamage = FragTrap::AttackDamage;
-		ClapTrap::_name = this->_name + "_clap_name";
 }
 
 

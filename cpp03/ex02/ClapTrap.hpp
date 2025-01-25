@@ -4,7 +4,7 @@
 class ClapTrap
 {
 	protected:
-		std::string Name;
+		std::string name;
 		int Hitpoints;
 		int EnergyPoints;
 		int AttackDamage;
@@ -12,7 +12,7 @@ class ClapTrap
 		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &copy);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 		std::string getName(void) const;
 		ClapTrap const &operator = (ClapTrap const &rhs);
 		void attack(std::string const & target);
