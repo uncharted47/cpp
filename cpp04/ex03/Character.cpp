@@ -6,7 +6,7 @@ Character::Character(void) {
 	std::cout << "Character Default constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 		materia[i] = NULL;
-	materia_list = new t_materia;
+	materia_list = NULL;
 }
 
 Character::Character(std::string name) : _name(name)
@@ -14,43 +14,49 @@ Character::Character(std::string name) : _name(name)
 	std::cout << "Character parameterized constructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 		materia[i] = NULL;
-	materia_list = new t_materia;
+	materia_list = NULL;
+
 }
 
 t_materia *Character::cloneMateria() const
 {
-	t_materia *tmp = new t_materia;
-	t_materia *tmp2 = materia_list;
-	while(tmp2)
+	if (!materia_list)
+		return NULL;
+
+	t_materia *new_list = new t_materia;
+	new_list->materia = materia_list->materia->clone();
+	new_list->next = NULL;
+
+	t_materia *current_new = new_list;
+	t_materia *current_old = materia_list->next;
+
+	while (current_old)
 	{
-		tmp->materia = tmp2->materia->clone();
-		tmp2 = tmp2->next;
-		if(tmp2)
-		{
-			tmp->next = new t_materia;
-			tmp = tmp->next;
-		}
-		else
-			tmp->next = NULL;
+		current_new->next = new t_materia;
+		current_new->materia = current_old->materia->clone();
+		current_new->next = NULL;
+		current_old = current_old->next;
 	}
-	return (tmp);
+
+	return new_list;
 }
 
 
 Character::Character(Character const &copy)
 {
 	std::cout << "Character Copy constructor called" << std::endl;
+	for(int i = 0; i < 4; i++)
+		materia[i] = NULL;
 	if(this != &copy)
 	{
 		for(int i = 0; i < 4; i++)
 		{
 			if(materia[i])
 				delete materia[i];
-			materia[i] = copy.materia[i]->clone();
+			if(copy.materia[i])
+				materia[i] = copy.materia[i]->clone();
 		}
-		this->materia_list = copy.cloneMateria();
 	}
-	*this = copy;
 }
 
 void removeFromlist(AMateria *m, t_materia **materialist)
@@ -91,6 +97,7 @@ Character::~Character(void) {
 	{
 		t_materia *tmp = materia_list;
 		materia_list = materia_list->next;
+		delete tmp->materia;
 		delete tmp;
 	}
 	materia_list = NULL;
@@ -104,9 +111,11 @@ Character const	&Character::operator = (Character const &rhs)
 		{
 			if(materia[i])
 				delete materia[i];
-			materia[i] = rhs.materia[i]->clone();
+			if(rhs.materia[i])
+				materia[i] = rhs.materia[i]->clone();
 		}
 	}
+	materia_list = rhs.cloneMateria();
 	std::cout << "Character assignation operator called" << std::endl;
 	return (*this);
 }
@@ -132,7 +141,8 @@ void Character::equip(AMateria* m)
 		if(!materia[i])
 		{
 			materia[i] = m;
-			addtolist(m, &equiped_list);
+			removeFromlist(m, &materia_list);
+			addtolist(m, &Character::equiped_list);
 			return;
 		}
 	}
@@ -146,7 +156,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if(idx < 0 || idx >= 4 || !materia[idx])
+	if(idx < 0 || idx > 4 || !materia[idx])
 		return;
 	removeFromlist(materia[idx], &equiped_list);
 	addtolist(materia[idx], &materia_list);
@@ -155,23 +165,18 @@ void Character::unequip(int idx)
 
 void addtolist(AMateria *m, t_materia **materialist)
 {
+	if(!m)
+		return;
 
 	t_materia *materia_list = *materialist;
 	if(!materia_list)
 		{
 			materia_list = new t_materia;
-			std::cout << materia_list << std::endl;
 			materia_list->materia = m;
 			materia_list->next = NULL;
 			*materialist = materia_list;
 			return;
 		}
-	if(!materia_list->materia)
-	{
-		materia_list->materia = m;
-		materia_list->next = NULL;
-		return;
-	}
 	t_materia *tmp = *materialist;
 	while(tmp->next)
 		tmp = tmp->next;
@@ -203,7 +208,7 @@ void Character::clearList()
 
 void Character::use(int idx, ICharacter& target)
 {
-	if(idx < 0 || idx >= 4 || !materia[idx])
+	if(idx < 0 || idx > 4 || !materia[idx])
 		return;
 	materia[idx]->use(target);
 }

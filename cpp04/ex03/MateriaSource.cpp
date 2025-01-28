@@ -36,14 +36,17 @@ MateriaSource const	&MateriaSource::operator = (MateriaSource const &rhs)
 
 void MateriaSource::learnMateria(AMateria *materia)
 {
+	if(!materia)
+		return;
 	for(int i = 0; i < 4; i++)
 	{
 		if(!this->materia[i])
 		{
 			this->materia[i] = materia;
-			break;
+			return ;
 		}
 	}
+	std::cout << "Can't learn anymore materia" << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type)
