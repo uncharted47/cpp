@@ -1,2 +1,4 @@
 *.o
 *.vscode
+Cpp_05
+.gitignore
