@@ -1,4 +1,4 @@
-NAME = Base
+NAME = Whatever
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
