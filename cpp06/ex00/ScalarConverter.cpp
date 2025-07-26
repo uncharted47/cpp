@@ -72,56 +72,92 @@ void ScalarConverter::convert(std::string &literal)
 		convertInt(literal);
 	}
 }
+
+
 void ScalarConverter::convertFloat(const std::string &literal)
 {
+    _float = atof(literal.c_str());
+    _int = static_cast<int>(_float);
+    _double = static_cast<double>(_float);
 
-	_float = atof(literal.c_str());
-	_int = static_cast<int>(_float);
-	_double = static_cast<double>(_float);
-		if (!isascii(_int))	{
-		std::cout << "char: impossible" << std::endl;
-	}
-	else	{
-		_char = static_cast<char>(_int);
-		if (isprint(_char))
-			std::cout << "char: '" << _char << "'" << std::endl;
-		else
-			std::cout << "char: Non displayable" << std::endl;
+    // char output
+    if (!isascii(_int))	{
+        std::cout << "char: impossible" << std::endl;
+    } else {
+        _char = static_cast<char>(_int);
+        if (isprint(_char))
+            std::cout << "char: '" << _char << "'" << std::endl;
+        else
+            std::cout << "char: Non displayable" << std::endl;
+    }
 
-	}
-	if (_float > static_cast<float>(INT_MAX) || _float < static_cast<float>(INT_MIN) || std::isnan(_float) || std::isinf(_float))
-		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << _int << std::endl;
-	std::cout << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
+    // int output
+    if (_float > static_cast<float>(INT_MAX) || _float < static_cast<float>(INT_MIN) || std::isnan(_float) || std::isinf(_float))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << _int << std::endl;
 
+    // float output
+    if (std::isinf(_float)) {
+        std::cout << "float: " << (_float > 0 ? "+inf" : "-inf") << "f" << std::endl;
+    } else if (std::isnan(_float)) {
+        std::cout << "float: nanf" << std::endl;
+    } else {
+        std::cout << "float: " << _float << "f" << std::endl;
+    }
+
+    // double output
+    if (std::isinf(_double)) {
+        std::cout << "double: " << (_double > 0 ? "+inf" : "-inf") << std::endl;
+    } else if (std::isnan(_double)) {
+        std::cout << "double: nan" << std::endl;
+    } else {
+        std::cout << "double: " << _double << std::endl;
+    }
 }
-
 
 void ScalarConverter::convertDouble(const std::string &literal)
 {
-	_double = atof(literal.c_str());
-	_int = static_cast<int>(_float);
-	_float = static_cast<float>(_double);
-		if (!isascii(_int))	{
-		std::cout << "char: impossible" << std::endl;
-	}
-	else	{
-		_char = static_cast<char>(_int);
-		if (isprint(_char))
-			std::cout << "char: '" << _char << "'" << std::endl;
-		else
-			std::cout << "char: Non displayable"<< std::endl;
+    _double = atof(literal.c_str());
+    _int = static_cast<int>(_double);
+    _float = static_cast<float>(_double);
 
-	}
-	if (_double > INT_MAX  || _double < INT_MIN || std::isnan(_double) || std::isinf(_double))
-		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << _int << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
+    // char output
+    if (!isascii(_int))	{
+        std::cout << "char: impossible" << std::endl;
+    } else {
+        _char = static_cast<char>(_int);
+        if (isprint(_char))
+            std::cout << "char: '" << _char << "'" << std::endl;
+        else
+            std::cout << "char: Non displayable"<< std::endl;
+    }
 
+    // int output
+    if (_double > INT_MAX  || _double < INT_MIN || std::isnan(_double) || std::isinf(_double))
+        std::cout << "int: impossible" << std::endl;
+    else
+        std::cout << "int: " << _int << std::endl;
+
+    // float output
+    if (std::isinf(_float)) {
+        std::cout << std::fixed << std::setprecision(1)
+                  << "float: " << (_float > 0 ? "+inf" : "-inf") << "f" << std::endl;
+    } else if (std::isnan(_float)) {
+        std::cout << "float: nanf" << std::endl;
+    } else {
+        std::cout << std::fixed << std::setprecision(1)
+                  << "float: " << _float << "f" << std::endl;
+    }
+
+    // double output
+    if (std::isinf(_double)) {
+        std::cout << "double: " << (_double > 0 ? "+inf" : "-inf") << std::endl;
+    } else if (std::isnan(_double)) {
+        std::cout << "double: nan" << std::endl;
+    } else {
+        std::cout << "double: " << _double << std::endl;
+    }
 }
 
 

@@ -11,12 +11,12 @@ class ScalarConverter
 		static float _float;
 		static char _char;
 		static double _double;
-
-	public :
 		ScalarConverter(void);
 		ScalarConverter(ScalarConverter const &copy);
 		~ScalarConverter(void);
 		ScalarConverter const &operator = (ScalarConverter const &rhs);
+
+	public :
 		static void convert(std::string &literal);
 		static void convertString(const std::string &literal);
 		static void convertChar(const std::string &literal);
