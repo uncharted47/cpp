@@ -13,6 +13,7 @@ int main(void)
 	{
 		std::cout << constitution << std::endl;
 		std::cout << NewLaw << std::endl;
+		vicePrimeMinister.signForm(constitution);
 		primeMinister.signForm(constitution);
 		vicePrimeMinister.signForm(NewLaw);
 		politician.signForm(NewLaw);

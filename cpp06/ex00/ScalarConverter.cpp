@@ -52,7 +52,7 @@ void ScalarConverter::convert(std::string &literal)
 		if (i == 0 && (literal[i] == '+' || literal[i] == '-')) {
 			continue;
 		}
-		if (literal[i] == '.' && decimalCount == 0) {
+		if (literal[i] == '.' && decimalCount == 0 && i > 0 && isdigit(literal[i - 1]) && i < literal.length() - 1 ) {
 			decimalCount++;
 			continue;
 		}

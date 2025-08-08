@@ -12,7 +12,8 @@ MateriaSource::MateriaSource(MateriaSource const &copy)
 	if(this != &copy)
 	{
 		for(int i = 0; i < 4; i++)
-			materia[i] = copy.materia[i]->clone();
+			if(copy.materia[i])
+				materia[i] = copy.materia[i]->clone();
 	}
 	*this = copy;
 }
@@ -20,7 +21,8 @@ MateriaSource::MateriaSource(MateriaSource const &copy)
 MateriaSource::~MateriaSource(void) {
 	std::cout << "MateriaSource Destructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
-		delete materia[i];
+		if(materia[i])
+			delete materia[i];
 }
 
 MateriaSource const	&MateriaSource::operator = (MateriaSource const &rhs)
@@ -29,7 +31,8 @@ MateriaSource const	&MateriaSource::operator = (MateriaSource const &rhs)
 	if (this != &rhs)
 	{
 		for(int i = 0; i < 4; i++)
-			materia[i] = rhs.materia[i]->clone();
+			if(rhs.materia[i])
+				materia[i] = rhs.materia[i]->clone();
 	}
 	return (*this);
 }

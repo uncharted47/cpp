@@ -15,6 +15,7 @@ int main(void)
 		primeMinister.decrement();
 		vicePrimeMinister.increment();
 		vicePrimeMinister.increment();
+		politician.decrement();
 	}
 	catch(const std::exception& e)
 	{
